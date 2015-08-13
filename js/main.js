@@ -39,32 +39,51 @@ displayAnswer.innerHTML = "Your answer is: " + basicAnswer;
 
 
 //BMI Calculator
+var bmiUnit = document.getElementById("bmi-units");
 
 var bmiBox = document.getElementById("bmi-answer");
 //Setting answer box to hide
-bmiBox.className = "show";
+bmiBox.className = "hide";
 
+var bmiMassUnit = document.getElementById("bmi-mass-unit");
+var bmiHeightUnit = document.getElementById("bmi-height-unit");
 
 var bmiButton = document.getElementById("bmi-calc");
+
+bmiUnit.addEventListener("change", function(){
+if (bmiUnit.value === "imperial") {
+  bmiMassUnit.innerHTML = "lb";
+  bmiHeightUnit.innerHTML = "Inch";
+} else {
+  bmiMassUnit.innerHTML = "kg";
+  bmiHeightUnit.innerHTML = "m";
+}
+
+})
+
+
 //Setting an Event listener on Click
 
 bmiButton.addEventListener("click", function(){
+
+var bmiMass = parseFloat(document.getElementById("bmi-mass").value);
+var bmiHeight = parseFloat(document.getElementById("bmi-height").value);
+
+if (bmiUnit === "metric"){
+     bmiAnswer = (bmiMass/Math.pow(bmiHeight, 2)
+
+} else if (bmiUnit === "imperial") {
+
+  bmiAnswer = (bmiMass/Math.pow(bmiHeight, 2)*703;
+
+}
+
+bmiBox.className = "show"
+var showAnswer = document.getElementById("bmi-answer-alert")
+showAnswer.innerHTML = "Your BMI is: " + bmiAnswer;
   
-var bmiMass = parseFloat(document.getElementById("bmi-mass-unit").value);
-var bmiHeight = parseFloat(document.getElementById("bmi-height-unit").value);
+}
 
-
-
-
-
-// var bmiMass, bmiHeight, bmiMass / Math.pow(height, 2)
-
-//   var bmiAnswer = document.getElementById("basic-calc").value;
-
-
-//     //   var mass = parseFloat(prompt("Mass (KG)"));
-//     //   var height = parseFloat(prompt("Height (Meters)"));
-//     //   
 
 
 
