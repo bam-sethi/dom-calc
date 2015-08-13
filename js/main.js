@@ -1,6 +1,8 @@
 var answerBox = document.getElementById("basic-answer");
-answerBox.className = "show";
-// basicAnswer.className = "hide"
+
+answerBox.className = "hide";
+
+
 var basicButton = document.getElementById("basic-calc");
 
 basicButton.addEventListener("click", function(){
@@ -8,8 +10,8 @@ basicButton.addEventListener("click", function(){
   var basicNumOne = parseFloat(document.getElementById("basic-num-1").value);
   var basicNumTwo = parseFloat(document.getElementById("basic-num-2").value);
   var basicOp = document.getElementById("basic-operation").value;
-  basicAnswer = document.getElementById("basic-answer").value;
- 
+  var basicAnswer = document.getElementById("basic-answer").value;
+
   switch(basicOp){
     case "+":
       basicAnswer = basicNumOne + basicNumTwo;
@@ -24,8 +26,10 @@ basicButton.addEventListener("click", function(){
       basicAnswer =  basicNumOne * basicNumTwo;
       break;
   }
-  console.log("basic answer ")
-  return basicAnswer;
+answerBox.className = "show"
+var displayAnswer = document.getElementById("basic-answer-alert")
+displayAnswer.innerHTML = "Your answer is: " + basicAnswer;
+
 })
 
 
